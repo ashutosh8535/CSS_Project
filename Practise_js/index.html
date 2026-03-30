@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Cryptography System</title>
+</head>
+<body>
+
+<h2>🔐 Cryptography System</h2>
+
+<input type="text" id="message" placeholder="Enter message"><br><br>
+<input type="number" id="key" placeholder="Enter key"><br><br>
+
+<button onclick="encrypt()">Encrypt</button>
+<button onclick="decrypt()">Decrypt</button>
+
+<p><b>Result:</b> <span id="result"></span></p>
+
+<script>
+function encrypt() {
+    let msg = document.getElementById("message").value;
+    let key = parseInt(document.getElementById("key").value);
+    let result = "";
+
+    for (let i = 0; i < msg.length; i++) {
+        result += String.fromCharCode(msg.charCodeAt(i) + key);
+    }
+
+    document.getElementById("result").innerText = result;
+}
+
+function decrypt() {
+    let msg = document.getElementById("message").value;
+    let key = parseInt(document.getElementById("key").value);
+    let result = "";
+
+    for (let i = 0; i < msg.length; i++) {
+        result += String.fromCharCode(msg.charCodeAt(i) - key);
+    }
+
+    document.getElementById("result").innerText = result;
+}
+</script>
+
+</body>
+</html>
